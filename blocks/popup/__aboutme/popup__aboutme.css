@@ -4,3 +4,9 @@
     margin-bottom: 48px;
     min-width: 358px;
 }
+
+@media screen and (max-width:320px){
+    .popup__aboutme{
+        min-width: 238px;
+    }
+}

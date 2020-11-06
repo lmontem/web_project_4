@@ -6,6 +6,21 @@
         <title>Around the U.S.</title>
     </head>
     <body>
+        <section class="popup">
+            <div class="popup__container">
+                <h3 class="popup__title">Edit profile</h3>
+                <form>
+                    <label>
+                        <input class="popup__name" type="text" name="name" placeholder="Name" required>
+                    </label>
+                    <label>
+                        <input class="popup__aboutme" type="textarea" name="about me" placeholder="About me" required>
+                    </label>
+                    <button class="popup__save-btn">Save</button>
+                </form>
+            </div>
+            <button class="popup__close-btn"><img src="./images/Close Icon.svg" alt="close icon"></button>
+        </section>
         <div class= "page">
             <header class="header">
                 <img class="logo" src="./images/Vector.svg" alt="around the U.S. logo">
@@ -20,24 +35,6 @@
                         
                     </div>
                     <button class="profile__add-btn"><img src="./images/add.svg" alt="add sign"></button>
-                </section>
-                <section class="popup">
-                    <button class="popup__close-btn"><img src="./images/Close Icon.svg" alt="close icon"></button> 
-                    <div class="popup__container">
-                        
-                        <h3 class="popup__title">Edit profile</h3>
-                        <form>
-                            <label>
-                                <input class="popup__name" type="text" name="name" placeholder="Name" required>
-                            </label>
-                            <label>
-                                <input class="popup__aboutme" type="textarea" name="about me" placeholder="About me" required>
-                            </label>
-                            <button class="popup__save-btn">Save</button>
-
-                        </form>
-                        
-                    </div>
                 </section>
                 <section class="cards">
                     <div class="card">
