@@ -1,0 +1,6 @@
+.popup__name{
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+    min-width: 358px;
+}

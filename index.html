@@ -21,20 +21,22 @@
                     </div>
                     <button class="profile__add-btn"><img src="./images/add.svg" alt="add sign"></button>
                 </section>
-                <section class="pop-up">
-                    <img src="./images/Close Icon.svg" alt="close icon">
-                    <div class="pop-up__container">
-                        <h3 class="pop-up__title">Edit profile</h3>
+                <section class="popup">
+                    <button class="popup__close-btn"><img src="./images/Close Icon.svg" alt="close icon"></button> 
+                    <div class="popup__container">
+                        
+                        <h3 class="popup__title">Edit profile</h3>
                         <form>
                             <label>
-                                <input type="text" name="name" placeholder="Name" required>
+                                <input class="popup__name" type="text" name="name" placeholder="Name" required>
                             </label>
                             <label>
-                                <input type="text" name="occupation" placeholder="Occupation" required>
+                                <input class="popup__aboutme" type="textarea" name="about me" placeholder="About me" required>
                             </label>
-                            <button class="pop-up__save-btn">Save</button>
+                            <button class="popup__save-btn">Save</button>
 
                         </form>
+                        
                     </div>
                 </section>
                 <section class="cards">
