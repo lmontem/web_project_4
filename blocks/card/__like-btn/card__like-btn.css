@@ -1,0 +1,8 @@
+.card__like-btn{
+    grid-row: 2/3;
+    grid-column: 2/3;
+    align-self: center;
+    justify-self: flex-end;
+    padding-right: 18px;
+
+}

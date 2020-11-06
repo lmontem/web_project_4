@@ -1,0 +1,15 @@
+@import url('./__image/card__image.css');
+@import url('./__heading/card__heading.css');
+@import url('./__like-btn/card__like-btn.css');
+
+.card{
+    width: 100%;
+    max-width: 282px;
+    max-height: 361px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 21px;
+    grid-template-rows: 1fr 1fr;
+}
