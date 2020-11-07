@@ -3,12 +3,11 @@
     font-size: 24px;
     font-weight: 900;
     line-height: 29px;
-    margin: 0;
-    margin-left: 36px;
-    margin-right: 36px;
+    margin: 0 36px;
     padding-top: 34px;
     padding-bottom: 54px;
     text-align: left;
+    
 }
 
 @media screen and (max-width: 320px){

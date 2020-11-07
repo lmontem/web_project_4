@@ -1,3 +1,4 @@
+
 @import url('./__close-btn/popup__close-btn.css');
 @import url('./__container/popup__container.css');
 @import url('./__title/popup__title.css');
@@ -11,10 +12,11 @@
     height: 100%;
     margin: 0 auto;
     text-align: center;
-    position: fixed;
-    display: flex;   
+    position: fixed;    
+    display: none;   
     justify-content: center;
     align-items: center;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
 }
 
 .popup::after{
@@ -28,3 +30,4 @@
     left: 0;
     z-index: -1;
 }
+
