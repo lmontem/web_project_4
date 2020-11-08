@@ -3,10 +3,13 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     margin-bottom: 30px;
     min-width: 358px;
+    font-size: 14px;
+    line-height: 17px;
 }
 
-@media screen and (max-width:320px){
+@media screen and (max-width:580px){
     .popup__name{        
         min-width: 238px;
+        
     }
 }

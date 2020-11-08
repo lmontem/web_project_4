@@ -2,6 +2,7 @@
     background-color: #000000;
     color: #ffffff;
     font-size: 18px;
+    line-height: 22px;
     min-width: 358px;
     margin-bottom: 36px;
     padding: 14px 0 19px;
@@ -15,8 +16,10 @@
     opacity: 0.8;
 }
 
-@media screen and (max-width:320px){
+@media screen and (max-width:580px){
     .popup__save-btn{
         min-width: 238px;
+        font-size: 14px;
+        line-height: 17px;
     }
 }
