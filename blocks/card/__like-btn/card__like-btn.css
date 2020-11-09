@@ -4,5 +4,15 @@
     align-self: center;
     justify-self: flex-end;
     padding-right: 18px;
+    background-image: url('../../../images/heart.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    width: 21px;
+    height: 18px;
+    cursor: pointer;
+}
 
+.card__like-btn:hover{
+    opacity: 0.6;
 }
