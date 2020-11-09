@@ -8,22 +8,25 @@ let aboutMe = popup.querySelector('.popup__aboutme');
 let profileName = document.querySelector('.profile__name');
 let profileOccupation = document.querySelector('.profile__occupation');
 
-editButton.addEventListener('click', function(){    
-    popup.classList.add('popup_opened');
+function formOpenClose() {     
+    name.value = profileName.textContent;
+    aboutMe.value = profileOccupation.textContent;
+    popup.classList.toggle('popup_opened');
+    
+}
 
-})
 
-closeButton.addEventListener('click', function(){
-    popup.classList.remove('popup_opened');
-})
-
-form.addEventListener('submit', function(event){
+function formChange(event){
     event.preventDefault();   
 
     profileName.textContent = name.value;
     profileOccupation.textContent = aboutMe.value;
 
-    popup.classList.remove('popup_opened');
+   formOpenClose();   
+}
 
-   
-})
+editButton.addEventListener('click', formOpenClose);
+
+closeButton.addEventListener('click',formOpenClose);
+
+form.addEventListener('submit',formChange);
