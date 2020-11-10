@@ -1,5 +1,5 @@
 .popup__save-btn{
-    background-color: #000000;
+    background-color:#000000;
     color: #ffffff;
     font-size: 18px;
     line-height: 22px;
@@ -9,6 +9,7 @@
     border-radius: 2px;
     transition: opacity 0.5s ease-in-out;
     cursor: pointer;
+    border: none;
 
 }
 
