@@ -3,7 +3,7 @@
     grid-template-columns: 1fr 24px;
     padding-left: 30px;
     gap: 16px 18px;
-    align-items: center;
+    align-items: baseline;
     
 }
 

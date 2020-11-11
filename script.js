@@ -9,8 +9,10 @@ let profileName = document.querySelector('.profile__name');
 let profileOccupation = document.querySelector('.profile__occupation');
 
 function formOpenClose() {     
-    name.value = profileName.textContent;
-    aboutMe.value = profileOccupation.textContent;
+    if (!popup.classList.contains('popup_opened')){
+        name.value = profileName.textContent;
+        aboutMe.value = profileOccupation.textContent;
+    }
     popup.classList.toggle('popup_opened');
     
 }
