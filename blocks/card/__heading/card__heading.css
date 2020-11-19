@@ -4,11 +4,12 @@
     font-weight: 900;
     line-height: 29px;
     margin: 0;
-    grid-row: 2/3;
     grid-column: 1/2;
     align-self: center;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
     padding-left: 21px;
+    padding-top: 25px;
+    padding-bottom: 31px;
 }

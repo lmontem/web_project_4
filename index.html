@@ -1,84 +1,94 @@
-<html lang= "en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale = 1.0">
-        <link rel= "stylesheet" href="./pages/index.css">
-        <title>Around the U.S.</title>
-    </head>
-    <body>
-        <section class="popup">
-            <div class="popup__box">
-            <button class="popup__close-btn"></button> 
-            <div class="popup__container">                
-                <h3 class="popup__title">Edit profile</h3>
-                <form class="popup__form">
-                    <label>
-                        <input class="popup__name" type="text" name="name" placeholder="Name" required>
-                    </label>
-                    <label>
-                        <input class="popup__aboutme" type="textarea" name="about me" placeholder="About me" required>
-                    </label>
-                    <button class="popup__save-btn" type="submit">Save</button>
-                </form>
-            </div>  
-              
-        </div>       
-        </section>
-        <div class= "page">
-            <header class="header">
-                <img class="logo" src="./images/Vector.svg" alt="around the U.S. logo">
-            </header>
-            <main class="content">
-             
-                <section class="profile">
-                    <img class="profile__avatar" src="./images/avatar.png" alt="profile picture">
-                    <div class="profile__info">
-                        <h1 class="profile__name">Jacques Cousteau</h1>
-                        <button class="profile__edit-btn"></button>
-                        <p class="profile__occupation">Explorer</p>
-                        
-                    </div>
-                    <button class="profile__add-btn"></button>
-                </section>
-                <section class="cards">
-                    <div class="card">
-                        <img class= "card__image" src="./images/yosemite valley.png" alt="river surrounding by trees">
-                        <h2 class="card__heading">Yosemite Valley</h2>
-                        <img class= "card__like-btn" src="./images/heart.svg" alt="heart">
-                    </div>
-                    <div class="card">
-                        <img class= "card__image" src="./images/old faithful.jpg" alt="greyser erupting">
-                        <h2 class="card__heading">Old Faithful</h2>
-                        <img class= "card__like-btn" src="./images/heart.svg" alt="heart">
-                    </div>
-                    <div class="card">
-                        <img class= "card__image" src="./images/niagra falls.jpg" alt="boat and giant waterfall">
-                        <h2 class="card__heading">Niagra Falls</h2>
-                        <img class= "card__like-btn" src="./images/heart.svg" alt="heart">
-                    </div>
-                    <div class="card">
-                        <img class= "card__image" src="./images/letchworth st park.jpg" alt="canyon with waterfall">
-                        <h2 class="card__heading">Letchworth State Park</h2>
-                        <img class= "card__like-btn" src="./images/heart.svg" alt="heart">
-                        
-                    </div>
-                    <div class="card">
-                        <img class= "card__image" src="./images/grand canyon.jpg" alt="river in the grand canyon">
-                        <h2 class="card__heading">Grand Canyon</h2>
-                        <img class= "card__like-btn" src="./images/heart.svg" alt="heart">
-                    </div>
-                    <div class="card">
-                        <img class= "card__image" src="./images/bald mountians.png" alt="sunset on mountains">
-                        <h2 class="card__heading">Bald Mountains</h2>
-                        <img class= "card__like-btn" src="./images/heart.svg" alt="heart">
-                    </div>
+<!DOCTYPE html>
+<html lang="en">
 
-                </section>
-            </main>
-            <footer class="footer">
-                <p class="footer__copyright">© 2020 Around The U.S.</p>
-            </footer>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale = 1.0">
+    <link rel="stylesheet" href="./pages/index.css">
+    <title>Around the U.S.</title>
+</head>
+
+<body>
+
+
+    <div class="page">
+        <header class="header">
+            <img class="logo" src="./images/Vector.svg" alt="around the U.S. logo">
+        </header>
+        <main class="content">
+
+            <section class="profile">
+                <img class="profile__avatar" src="./images/avatar.png" alt="profile picture">
+                <div class="profile__info">
+                    <h1 class="profile__name">Jacques Cousteau</h1>
+                    <button class="profile__edit-btn" type="button" aria-label="Edit profile"></button>
+                    <p class="profile__occupation">Explorer</p>
+
+                </div>
+                <button class="profile__add-btn" type="button" aria-label="Add picture"></button>
+            </section>
+            <section class="cards">
+                <div class="card">
+                    <img class="card__image" src="./images/yosemite_valley.png" alt="river surrounding by trees">
+                    <h2 class="card__heading">Yosemite Valley</h2>
+                    <button class="card__like-btn" type="button" aria-label="Like"></button>
+
+                </div>
+                <div class="card">
+                    <img class="card__image" src="./images/old_faithful.jpg" alt="greyser erupting">
+                    <h2 class="card__heading">Old Faithful</h2>
+                    <button class="card__like-btn" type="button" aria-label="Like"></button>
+                </div>
+                <div class="card">
+                    <img class="card__image" src="./images/niagra_falls.jpg" alt="boat and giant waterfall">
+                    <h2 class="card__heading">Niagra Falls</h2>
+                    <button class="card__like-btn" type="button" aria-label="Like"></button>
+                </div>
+               <div class="card">
+                    <img class="card__image" src="./images/letchworth_st_park.jpg" alt="canyon with waterfall">
+                    <h2 class="card__heading">Letchworth State Park</h2>
+                    <button class="card__like-btn" type="button" aria-label="Like"></button>
+
+                </div>
+                <div class="card">
+                    <img class="card__image" src="./images/grand_canyon.jpg" alt="river in the grand canyon">
+                    <h2 class="card__heading">Grand Canyon</h2>
+                    <button class="card__like-btn" type="button" aria-label="Like"></button>
+                </div>
+                <div class="card">
+                    <img class="card__image" src="./images/bald_mountians.png" alt="sunset on mountains">
+                    <h2 class="card__heading">Bald Mountains</h2>
+                    <button class="card__like-btn" type="button" aria-label="Like"></button>
+                </div>
+
+            </section>
+        </main>
+        <footer class="footer">
+            <p class="footer__copyright">© 2020 Around The U.S.</p>
+        </footer>
+        <div class="popup">
+            <div class="popup__box">
+                <button class="popup__close-btn" type="button" aria-label="Close"></button>
+                <div class="popup__container">
+                    <h3 class="popup__title">Edit profile</h3>
+                    <form class="popup__form">
+
+                        <input class="popup__input popup__input_type_name" type="text" name="name" placeholder="name"
+                            required>
+
+                        <input class="popup__input popup__input_type_about" type="text" name="about me"
+                            placeholder="about me" required>
+
+                        <button class="popup__save-btn" type="submit" aria-label="Save">Save</button>
+                    </form>
+                </div>
+
+            </div>
         </div>
-        <script src= 'script.js'></script>
-    </body>
+    </div>
+
+
+    <script src='script.js'></script>
+</body>
+
 </html>
