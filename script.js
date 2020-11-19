@@ -8,6 +8,33 @@ let aboutMe = popup.querySelector('.popup__aboutme');
 let profileName = document.querySelector('.profile__name');
 let profileOccupation = document.querySelector('.profile__occupation');
 
+const initialCards = [
+    {
+      name: "Yosemite Valley",
+      link: "https://code.s3.yandex.net/web-code/yosemite.jpg"
+    },
+    {
+      name: "Old Faithful",
+      link: "https://unsplash.com/photos/sy2tKYRONgw"
+    },
+    {
+      name: "Bald Mountains",
+      link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg"
+    },
+    {
+      name: "Niagra Falls",
+      link: "https://unsplash.com/photos/54ETr06aYSk"
+    },
+    {
+      name: "Grand Canyon",
+      link: "https://unsplash.com/photos/XuQGqCBpNGk"
+    },
+    {
+      name: "Letchworth State Park",
+      link: "https://unsplash.com/photos/Ecse6xZ-XP0"
+    }
+  ];
+
 editButton.addEventListener('click', function(){    
     popup.classList.add('popup_opened');
 
