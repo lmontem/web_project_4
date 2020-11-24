@@ -18,7 +18,7 @@ let name = editProfilePopup.querySelector('.popup__input_type_name');
 let aboutMe = editProfilePopup.querySelector('.popup__input_type_about');
 //add form
 let addCardForm = addCardPopup.querySelector('.popup__form');
-let cardTitle = addCardPopup.querySelector('.popup__input_type_card-title');
+let cardTitle = addCardPopup.querySelector('.popup__input_type_title');
 let cardLink = addCardPopup.querySelector('.popup__input_type_image-link');
 //other DOM
 let profileName = document.querySelector('.profile__name');
@@ -56,7 +56,6 @@ let initialCards = [
   ];
 //adds intial cards 
 
-
 initialCards.forEach((card)=>{
   let cardElem = cardTemplate.cloneNode(true);
   let title = cardElem.querySelector('.card__heading');
@@ -65,6 +64,7 @@ initialCards.forEach((card)=>{
     title.textContent = card.name;
     image.style.backgroundImage = `url(${card.link})`;    
     cards.prepend(cardElem);
+
   //open image popup
     image.addEventListener('click', ()=>{
     let popupImage = imagePopup.querySelector('.popup__image');
@@ -74,10 +74,12 @@ initialCards.forEach((card)=>{
     formOpenClose(imagePopup);
   })
   })
-    
+
   function formOpenClose(popup) {     
     popup.classList.toggle('popup_opened');    
 }
+
+
 
 //open and close add card popup
 addCardBtn.addEventListener('click', ()=>{
@@ -87,19 +89,22 @@ closeAddBtn.addEventListener('click', ()=>{
   formOpenClose(addCardPopup);
 })
 
-/*
+
 //functonality of adding images/title
 let addFormUpdate = e => {
   e.preventDefault();
-
-  title.textContent = cardTitle.value; 
-  image.url = cardLink.value;
-
-  formOpenClose(addCardPopup);
+  let cardElem = cardTemplate.cloneNode(true);
+  let title = cardElem.querySelector('.card__heading');
+  let image = cardElem.querySelector('.card__image');
+    
+    title.textContent = cardTitle.value;
+    image.style.backgroundImage = `url(${cardLink.value})`;    
+    cards.prepend(cardElem);
+  formOpenClose(addCardPopup);  
 }
 
 addCardForm.addEventListener('submit',addFormUpdate)
-*/
+
 
 
 //saves changes edit profile form
