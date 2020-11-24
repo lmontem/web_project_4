@@ -66,7 +66,7 @@ function addCard(newCard) {
   let image = cardElem.querySelector('.card__image');
 
   let likeBtn = cardElem.querySelector('.card__like-btn');
-//let deleteBtn = cardTemplate.querySelector('.card__delete-btn');
+let deleteBtn = cardElem.querySelector('.card__delete-btn');
 
   title.textContent = newCard.name;
   image.style.backgroundImage = `url(${newCard.link})`;
@@ -75,6 +75,11 @@ function addCard(newCard) {
   //like button event
   likeBtn.addEventListener('click', (e) => {
     e.target.classList.toggle('card__like-btn_active');
+  })
+
+  //delete button event
+  deleteBtn.addEventListener('click', ()=>{
+    cardElem.remove(newCard);
   })
 
   //open image popup
