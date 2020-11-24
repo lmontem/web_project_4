@@ -1,6 +1,7 @@
 @import url('./__image/card__image.css');
 @import url('./__heading/card__heading.css');
 @import url('./__like-btn/card__like-btn.css');
+@import url('./__like-btn/card__like-btn_active.css');
 
 .card{
     width: 100%;
