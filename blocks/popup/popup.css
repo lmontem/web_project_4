@@ -2,9 +2,14 @@
 @import url('./__box/popup__box.css');
 @import url('./__close-btn/popup__close-btn.css');
 @import url('./__container/popup__container.css');
+@import url('./__image-container/popup__image-container.css');
 @import url('./__title/popup__title.css');
 @import url('./__input/popup__input.css');
 @import url('./__save-btn/popup__save-btn.css');
+@import url('./__figure/popup__figure.css');
+@import url('./__image/popup__image.css');
+@import url('./__image-title/popup__image-title.css');
+@import url('./__closed/popup__closed.css');
 
 
 .popup{
@@ -15,13 +20,12 @@
     left: 0;
     text-align: center;
     position: fixed;    
-    display: none;   
+    display: flex;  
     justify-content: center;
-    align-items: center;
-    
-    font-family: 'Inter', Arial, Helvetica, sans-serif;
-    
+    align-items: center;    
+    font-family: 'Inter', Arial, Helvetica, sans-serif;    
     z-index: 2;
+
 }
 
 .popup::after{
