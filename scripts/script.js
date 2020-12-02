@@ -46,12 +46,6 @@ function addCard(newCard) {
     title.textContent = newCard.name;
     image.style.backgroundImage = `url(${newCard.link})`;
 
-
-    //like button event
-    likeBtn.addEventListener('click', (e) => {
-        e.target.classList.toggle('card__like-btn_active');
-    })
-
     //delete button event
     deleteBtn.addEventListener('click', () => {
         cardElem.remove(newCard);
@@ -73,6 +67,14 @@ function addCard(newCard) {
 initialCards.forEach(card => {
     cards.prepend(addCard(card));
 
+})
+
+//like button event
+cards.addEventListener('click', e => {
+    if (e.target.classList.contains('card__like-btn')) {
+        e.target.classList.toggle('card__like-btn_active');
+
+    }
 })
 
 //image popup close button event
