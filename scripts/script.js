@@ -34,13 +34,12 @@ function togglePopup(popup) {
 
 }
 
-//add new card
+//add new card function
 function addCard(newCard) {
     const cardElem = cardTemplate.cloneNode(true);
     const title = cardElem.querySelector('.card__heading');
     const image = cardElem.querySelector('.card__image');
 
-    const likeBtn = cardElem.querySelector('.card__like-btn');
     const deleteBtn = cardElem.querySelector('.card__delete-btn');
 
     title.textContent = newCard.name;
@@ -69,13 +68,14 @@ initialCards.forEach(card => {
 
 })
 
+
 //like button event
 cards.addEventListener('click', e => {
     if (e.target.classList.contains('card__like-btn')) {
         e.target.classList.toggle('card__like-btn_active');
 
     }
-})
+});
 
 //image popup close button event
 imageClosebtn.addEventListener('click', () => {
