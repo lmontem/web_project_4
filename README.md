@@ -3,7 +3,7 @@
 ### Overview
 
 A profile of places the user wants to visit around the U.S.
-Layout made with css. Javascript used to make a form for the user to fill in name and about me. 
+Layout made with css. Javascript used to validate forms and allow user to edit profile, add cards and popup images larger. 
 
 [Link to final project](https://lmontem.github.io/web_project_4/index.html)
 

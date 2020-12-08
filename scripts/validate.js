@@ -30,10 +30,10 @@ function toggleButtonState(inputs, button, settings) {
     })
     if (isFormValid) {
         button.classList.remove(settings.inactiveButtonClass);
-        button.disabled = true;
+        button.disabled = false;
     } else {
         button.classList.add(settings.inactiveButtonClass);
-        button.disabled = false;
+        button.disabled = true;
     }
 }
 
@@ -63,11 +63,4 @@ function enableValidation(settings) {
 // enabling validation by calling enableValidation()
 // pass all the settings on call
 
-enableValidation({
-    formSelector: ".popup__form",
-    inputSelector: ".popup__input",
-    submitButtonSelector: ".popup__save-btn",
-    inactiveButtonClass: "popup__save-btn_disabled",
-    inputErrorClass: "popup__input_type_error",
-    errorClass: "popup__error_visible"
-});
+enableValidation(settings);

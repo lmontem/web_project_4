@@ -23,3 +23,12 @@ let initialCards = [{
         link: "https://images.unsplash.com/photo-1518719668060-f16ad0ce7602"
     }
 ];
+
+const settings = {
+    formSelector: ".popup__form",
+    inputSelector: ".popup__input",
+    submitButtonSelector: ".popup__save-btn",
+    inactiveButtonClass: "popup__save-btn_disabled",
+    inputErrorClass: "popup__input_type_error",
+    errorClass: "popup__error_visible"
+}
