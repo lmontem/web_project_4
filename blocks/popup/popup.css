@@ -1,4 +1,3 @@
-
 @import url('./__box/popup__box.css');
 @import url('./__close-btn/popup__close-btn.css');
 @import url('./__container/popup__container.css');
@@ -10,25 +9,25 @@
 @import url('./__image/popup__image.css');
 @import url('./__image-title/popup__image-title.css');
 @import url('./__closed/popup__closed.css');
-
-
-.popup{
+@import url('./__input/popup__input_type_error.css');
+@import url('./__error/popup__error_visible.css');
+@import url('./__save-btn/popup__save-btn_disabled.css');
+.popup {
     width: 100%;
     height: 100%;
     margin: 0 auto;
     top: 0;
     left: 0;
     text-align: center;
-    position: fixed;    
-    display: flex;  
+    position: fixed;
+    display: flex;
     justify-content: center;
-    align-items: center;    
-    font-family: 'Inter', Arial, Helvetica, sans-serif;    
+    align-items: center;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
     z-index: 2;
-
 }
 
-.popup::after{
+.popup::after {
     width: 100%;
     min-height: 100%;
     opacity: 0.5;
@@ -39,4 +38,3 @@
     left: 0;
     z-index: -1;
 }
-
