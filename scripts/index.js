@@ -34,38 +34,32 @@ const popupImageTitle = imagePopup.querySelector('.popup__image-title');
 function openPopup(popup) {
     popup.classList.add('popup__opened');
     popup.classList.remove('popup__closed');
-    document.addEventListener('keydown', e => {
-        escape(e, popup);
-    });
-    popup.addEventListener('click', e => {
-        overlayClose(e, popup);
-    })
+    document.addEventListener('keydown', closeOnEscape);
+    popup.addEventListener('click', overlayClose);
 }
 
 //popup close function
 function closePopup(popup) {
     popup.classList.remove('popup__opened');
     popup.classList.add('popup__closed');
-    document.removeEventListener('keydown', e => {
-        escape(e, popup);
-    });
-    popup.removeEventListener('click', e => {
-        overlayClose(e, popup);
-    })
+    document.removeEventListener('keydown', closeOnEscape);
+    popup.removeEventListener('click', overlayClose);
+
 }
 
 //function for escape key close
-function escape(e, popup) {
-
+function closeOnEscape(e) {
+    const currentPopup = document.querySelector('.popup__opened');
     if (e.key === "Escape") {
-        closePopup(popup);
+        closePopup(currentPopup);
     }
 }
 
 //function for overlay close
-function overlayClose(e, popup) {
-    if (e.target === popup) {
-        closePopup(popup);
+function overlayClose(e) {
+    const currentPopup = document.querySelector('.popup__opened');
+    if (e.target === currentPopup) {
+        closePopup(currentPopup);
     }
 }
 
