@@ -3,4 +3,8 @@
     color: #ff0000;
     line-height: 15px;
     font-weight: normal;
+    position: absolute;
+    left: 0px;
+    top: 25px;
+    text-align: start;
 }
