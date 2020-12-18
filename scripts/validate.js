@@ -1,3 +1,7 @@
+import {
+    settings
+} from './array.js';
+
 function hideError(input, settings) {
     const formError = document.querySelector(`#${input.id}-error`);
     formError.classList.remove(settings.errorClass);

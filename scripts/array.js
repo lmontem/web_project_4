@@ -1,4 +1,4 @@
-let initialCards = [{
+export let initialCards = [{
         name: "Yosemite Valley",
         link: "https://code.s3.yandex.net/web-code/yosemite.jpg"
     },
@@ -24,7 +24,7 @@ let initialCards = [{
     }
 ];
 
-const settings = {
+export const settings = {
     formSelector: ".popup__form",
     inputSelector: ".popup__input",
     submitButtonSelector: ".popup__save-btn",

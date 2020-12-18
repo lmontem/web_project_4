@@ -1,10 +1,13 @@
+import { initialCards, settings } from "./array.js";
+import Card from "./Card.js";
+
+
 //popups
 const imagePopup = document.querySelector('.popup__type_image');
 const editProfilePopup = document.querySelector('.popup__type_edit-profile');
 const addCardPopup = document.querySelector('.popup__type_add-card');
 
-//template
-const cardTemplate = document.querySelector('.card-template').content.querySelector('.card');
+
 //buttons
 const editButton = document.querySelector('.profile__edit-btn');
 const editCloseBtn = editProfilePopup.querySelector('.popup__close-btn');
@@ -25,9 +28,7 @@ const profileName = document.querySelector('.profile__name');
 const profileOccupation = document.querySelector('.profile__occupation');
 const cards = document.querySelector('.cards');
 
-//image popup elements
-const popupImage = imagePopup.querySelector('.popup__image');
-const popupImageTitle = imagePopup.querySelector('.popup__image-title');
+
 
 
 //popup open function
@@ -63,40 +64,15 @@ function overlayClose(e) {
     }
 }
 
-//add new card function
-function addCard(newCard) {
-    const cardElem = cardTemplate.cloneNode(true);
-    const title = cardElem.querySelector('.card__heading');
-    const image = cardElem.querySelector('.card__image');
-    const likeBtn = cardElem.querySelector('.card__like-btn');
-    const deleteBtn = cardElem.querySelector('.card__delete-btn');
-
-    title.textContent = newCard.name;
-    image.style.backgroundImage = `url(${newCard.link})`;
-    //like button event
-    likeBtn.addEventListener('click', (e) => {
-            e.target.classList.toggle('card__like-btn_active');
-        })
-        //delete button event
-    deleteBtn.addEventListener('click', () => {
-        cardElem.remove(newCard);
-    })
-
-    //open image popup
-    image.addEventListener('click', () => {
-        popupImage.alt = newCard.name
-        popupImage.src = newCard.link;
-        popupImageTitle.textContent = newCard.name;
-        openPopup(imagePopup);
-    })
-
-    return cardElem;
-
+//render cards
+function renderCards(data, wrap) {
+    const card = new Card(data, ".card-template");
+    wrap.prepend(card.generateCard());
 }
 
 //adds initial cards
-initialCards.forEach(card => {
-    cards.prepend(addCard(card));
+initialCards.forEach(data => {
+    renderCards(data, cards);
 
 })
 
@@ -123,7 +99,7 @@ const addFormUpdate = e => {
     const cardElem = {};
     cardElem.name = cardTitle.value;
     cardElem.link = cardLink.value;
-    cards.prepend(addCard(cardElem));
+    renderCards(cardElem, cards);
     closePopup(addCardPopup);
 }
 
@@ -156,3 +132,8 @@ editCloseBtn.addEventListener('click', () => {
     closePopup(editProfilePopup);
 
 });
+
+export {
+    openPopup,
+    imagePopup
+};
