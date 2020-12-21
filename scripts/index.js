@@ -1,5 +1,6 @@
 import { initialCards, settings } from "./array.js";
 import Card from "./Card.js";
+import FormValidator from "./FormValidator.js";
 
 
 //popups
@@ -28,6 +29,8 @@ const profileName = document.querySelector('.profile__name');
 const profileOccupation = document.querySelector('.profile__occupation');
 const cards = document.querySelector('.cards');
 
+const editFormValidator = new FormValidator(settings, editForm);
+const cardFormValidator = new FormValidator(settings, addCardForm);
 
 
 
@@ -104,7 +107,7 @@ const addFormUpdate = e => {
 }
 
 addCardForm.addEventListener('submit', addFormUpdate)
-
+cardFormValidator.enableValidation();
 
 
 //saves changes edit profile form
@@ -124,7 +127,7 @@ editButton.addEventListener('click', () => {
         name.value = profileName.textContent;
         aboutMe.value = profileOccupation.textContent;
     }
-    enableValidation(settings);
+    editFormValidator.enableValidation();
     openPopup(editProfilePopup);
 });
 //closes profile edit popup w/ button

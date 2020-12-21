@@ -59,33 +59,3 @@ class Card {
 }
 
 export default Card;
-/*//add new card function
-function addCard(newCard) {
-    const cardElem = cardTemplate.cloneNode(true);
-    const title = cardElem.querySelector('.card__heading');
-    const image = cardElem.querySelector('.card__image');
-    const likeBtn = cardElem.querySelector('.card__like-btn');
-    const deleteBtn = cardElem.querySelector('.card__delete-btn');
-
-    title.textContent = newCard.name;
-    image.style.backgroundImage = `url(${newCard.link})`;
-    //like button event
-    likeBtn.addEventListener('click', (e) => {
-            e.target.classList.toggle('card__like-btn_active');
-        })
-        //delete button event
-    deleteBtn.addEventListener('click', () => {
-        cardElem.remove(newCard);
-    })
-
-    //open image popup
-    image.addEventListener('click', () => {
-        popupImage.alt = newCard.name
-        popupImage.src = newCard.link;
-        popupImageTitle.textContent = newCard.name;
-        openPopup(imagePopup);
-    })
-
-    return cardElem;
-
-}*/
