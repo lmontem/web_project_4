@@ -3,10 +3,15 @@ import {
 }
 from './index.js';
 class Card {
-    constructor(data, template) {
+    constructor({
+            data,
+            handleCardImageClick
+        },
+        template) {
         this._name = data.name;
         this._link = data.link;
         this._template = template;
+        this._handleCardImageClick = handleCardImageClick;
 
     }
 
@@ -31,7 +36,7 @@ class Card {
 
         //open image popup
         this._image.addEventListener('click', () => {
-            handleCardImageClick(this._name, this._link);
+            this._handleCardImageClick(this._name, this._link);
         })
     }
     generateCard() {
