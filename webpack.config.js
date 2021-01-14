@@ -54,6 +54,7 @@ module.exports = {
 
     ]
   },
+  stats: {children: true},
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/index.html"
