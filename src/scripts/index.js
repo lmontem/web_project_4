@@ -5,9 +5,7 @@ import Section from "./Section.js";
 import PopupWithForm from "./PopupWithForm.js";
 import PopupWithImage from "./PopupWithImage.js";
 import UserInfo from "./UserInfo.js";
-
-
-
+import '../pages/index.css'; // add import of the main stylesheets file
 
 const editProfilePopup = document.querySelector('.popup__type_edit-profile');
 const addCardPopup = document.querySelector('.popup__type_add-card');
