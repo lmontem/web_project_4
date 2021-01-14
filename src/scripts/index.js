@@ -1,4 +1,4 @@
-import { initialCards, settings } from "./array.js";
+import { initialCards, settings, editButton, addCardForm, addCardBtn, editForm, nameInput, aboutMeInput } from "./util.js";
 import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
 import Section from "./Section.js";
@@ -7,17 +7,6 @@ import PopupWithImage from "./PopupWithImage.js";
 import UserInfo from "./UserInfo.js";
 import '../pages/index.css'; // add import of the main stylesheets file
 
-const editProfilePopup = document.querySelector('.popup__type_edit-profile');
-const addCardPopup = document.querySelector('.popup__type_add-card');
-//buttons
-const editButton = document.querySelector('.profile__edit-btn');
-const addCardBtn = document.querySelector('.profile__add-btn');
-//edit form
-const editForm = editProfilePopup.querySelector('.popup__form');
-const nameInput = editProfilePopup.querySelector('.popup__input_type_name');
-const aboutMeInput = editProfilePopup.querySelector('.popup__input_type_about');
-//add form
-const addCardForm = addCardPopup.querySelector('.popup__form');
 
 
 const editFormValidator = new FormValidator(settings, editForm);
@@ -27,7 +16,6 @@ cardFormValidator.enableValidation();
 
 
 const imagePopup = new PopupWithImage('.popup__type_image');
-
 
 
 const defaultCardList = new Section({
@@ -72,8 +60,6 @@ editButton.addEventListener('click', () => {
     })
 
     const userInfo = new UserInfo({ nameSelector: '.profile__name', aboutSelector: '.profile__occupation' });
-
-
 
     nameInput.value = userInfo.getUserInfo().name;
 
