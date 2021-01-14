@@ -1,7 +1,3 @@
-import {
-    handleCardImageClick
-}
-from './index.js';
 class Card {
     constructor({
             data,
