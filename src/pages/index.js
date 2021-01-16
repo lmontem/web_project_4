@@ -16,19 +16,24 @@ cardFormValidator.enableValidation();
 
 
 const imagePopup = new PopupWithImage('.popup__type_image');
+imagePopup.setEventListeners();
 
+function createCard(item) {
+    const card = new Card({
+    data: item, handleCardImageClick: (name, link) => {
+        imagePopup.open(name, link);      
+
+    }
+}, ".card-template")
+const cardElement = card.generateCard();
+return cardElement
+}
 
 const defaultCardList = new Section({
     items: initialCards,
     renderer: (item) => {
-        const card = new Card({
-            data: item, handleCardImageClick: (name, link) => {
-                imagePopup.open(name, link);
-                imagePopup.setEventListeners();
-
-            }
-        }, ".card-template")
-        const cardElement = card.generateCard();
+     
+        const cardElement = createCard(item);
         defaultCardList.addItem(cardElement);
     }
 }, ".cards");
@@ -36,18 +41,15 @@ const defaultCardList = new Section({
 defaultCardList.renderItems();
 
 const popupAddCard = new PopupWithForm('.popup__type_add-card', (item) => {
-    const card = new Card({
-        data: item, handleCardImageClick: (name, link) => {
-            imagePopup.open(name, link);
-
-        }
-    }, ".card-template")
-    defaultCardList.addItem(card.generateCard());
+    const card = createCard(item);
+  
+    defaultCardList.addItem(card);
     popupAddCard.close();
 })
 popupAddCard.setEventListeners();
 
 addCardBtn.addEventListener('click', () => {
+    cardFormValidator.resetValidation();
       popupAddCard.open();
 })
 
@@ -63,10 +65,11 @@ const userInfo = new UserInfo({ nameSelector: '.profile__name', aboutSelector: '
 
 editPopup.setEventListeners();
 editButton.addEventListener('click', () => {
-    nameInput.value = userInfo.getUserInfo().name;
+    const {name, about} = userInfo.getUserInfo()
+    nameInput.value = name;
 
-aboutMeInput.value = userInfo.getUserInfo().about;
-    
+aboutMeInput.value = about;
+    editFormValidator.resetValidation();
     editPopup.open();
 
 })
