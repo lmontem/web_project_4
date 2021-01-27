@@ -18,7 +18,10 @@ class Card {
         return this._id;
     }
 
-
+    deleteCard (){
+               this._cardElem.remove('.card');       
+      
+    }
 
     _getCardTemplate() {
         const cardTemplate = document.querySelector(this._template).content.querySelector('.card');
@@ -38,7 +41,7 @@ class Card {
         //delete button event
         deleteBtn.addEventListener('click', (e) => {
             this._handleDeleteClick(this.id());
-            e.target.closest('.card').remove();
+            //e.target.closest('.card').remove();
         })
 
         //open image popup

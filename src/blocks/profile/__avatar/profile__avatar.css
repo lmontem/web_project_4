@@ -2,6 +2,12 @@
     border-radius: 50%;
     max-width: 120px;
     max-height: 120px;
+    
+}
+
+.profile__avatar:hover{
+    opacity:.5;
+    
 }
 
 @media screen and (max-width: 580px){

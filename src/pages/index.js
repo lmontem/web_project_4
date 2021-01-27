@@ -25,21 +25,26 @@ cardFormValidator.enableValidation();
 const imagePopup = new PopupWithImage('.popup__type_image');
 imagePopup.setEventListeners();
 
-const deleteConfirmPopup = new PopupWithForm('.popup__type_delete', ()=>{
-    api.removeCard()
-    
-});
+const deleteConfirmPopup = new PopupWithForm('.popup__type_delete');
 
-    deleteConfirmPopup.setEventListeners();
+deleteConfirmPopup.setEventListeners();
+
 
 //function to create a new card
 function createCard(item) {
     const card = new Card({
         data: item, handleCardImageClick: (name, link) => {
             imagePopup.open(name, link);
-        }, handleDeleteClick: (cardId) => {  
-            deleteConfirmPopup.open();                            
-           
+        }, handleDeleteClick: (cardId) => {
+            deleteConfirmPopup.open(cardId);
+            deleteConfirmPopup.setSubmitHandler(() => {
+                //remove the card
+                api.removeCard(cardId)
+                  .then(() => {
+                    card.deleteCard();
+                    deleteConfirmPopup.close();
+                  })})
+
         },
     }, ".card-template")
     const cardElement = card.generateCard();

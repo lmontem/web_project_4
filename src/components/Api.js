@@ -83,7 +83,26 @@ class Api {
             })
             .catch(err => console.log('Error! ' + err)) 
     }
-}
+    //PATCH https://around.nomoreparties.co/v1/groupId/users/me/avatar
+    setAvatar({avatar}){        
+        return fetch(this._baseUrl + 'users/me/avatar', {
+            method: "PATCH",
+            headers: this._headers,        
+            body: JSON.stringify({
+                avatar
+            })
+        })
+            .then(res => {
+                if (res.ok) {
+                    return res.json();//this makes object out of response
+                }
+                return Promise.reject(`Error: ${res.status}`)
+            })
+            .catch(err => console.log('Error! ' + err))       
+        
+    }
+    }
+
 
 
     /*
@@ -92,13 +111,6 @@ class Api {
         //PUT AND DELETE
     }
     
-    setAvatar(){
-        //method: PATCH
-    }*/
-    //only need one intance of api class, they give code at end of project info,
-    // only change group # and my personal token in headers/authorization
-    //then export instance of api to index.js (not class)
-
-    //Token: 36dac5ff-0396-44c7-b439-6ad6e17c0bf0
-    //Group ID: group-8
+    */
+   
     export default Api;
