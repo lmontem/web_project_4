@@ -25,17 +25,27 @@ cardFormValidator.enableValidation();
 const imagePopup = new PopupWithImage('.popup__type_image');
 imagePopup.setEventListeners();
 
+const deleteConfirmPopup = new PopupWithForm('.popup__type_delete', ()=>{
+    api.removeCard()
+    
+});
+
+    deleteConfirmPopup.setEventListeners();
+
 //function to create a new card
 function createCard(item) {
     const card = new Card({
         data: item, handleCardImageClick: (name, link) => {
             imagePopup.open(name, link);
-
-        }
+        }, handleDeleteClick: (cardId) => {  
+            deleteConfirmPopup.open();                            
+           
+        },
     }, ".card-template")
     const cardElement = card.generateCard();
     return cardElement
 }
+
 
 //render initial cards with api
 api.getInitialCards()
@@ -72,6 +82,7 @@ api.getInitialCards()
             cardFormValidator.resetValidation();
             popupAddCard.open();
         })//closing for event listener
+
     })//first then closing brackets
 
 

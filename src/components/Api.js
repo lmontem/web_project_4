@@ -66,20 +66,28 @@ class Api {
                 }
                 return Promise.reject(`Error: ${res.status}`)
             })
-            .catch(err => console.log('Error! ' + err))
+            .catch(err => console.log('Error! ' + err))       
         
-        
-        //body: JSON.stringify({name: name link:link})
-        //call after click submit button in index.js api.addCArd(data).then(res=>{put Card class here data:res})
-     }
+    }
+    removeCard(cardId){
+        //fetch cards + cardid 
+        return fetch(this._baseUrl + '/cards/' + cardId, {
+            method: "DELETE",
+            headers: this._headers,        
+            })
+            .then(res => {
+                if (res.ok) {
+                    return res.json();//this makes object out of response
+                }
+                return Promise.reject(`Error: ${res.status}`)
+            })
+            .catch(err => console.log('Error! ' + err)) 
+    }
 }
 
 
     /*
-    removeCArd(cardId){
-        //fetch cards + cardid 
-        //method: DELETE
-    }
+   
     changeLikeCArdStatus(cardId,like){
         //PUT AND DELETE
     }
