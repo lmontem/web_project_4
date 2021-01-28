@@ -8,6 +8,7 @@ import UserInfo from "../components/UserInfo.js";
 import Api from "../components/Api.js";
 import '../pages/index.css'; // add import of the main stylesheets file
 
+
 const api = new Api({
     baseUrl: "https://around.nomoreparties.co/v1/group-8",
     headers: {
@@ -20,6 +21,8 @@ const editFormValidator = new FormValidator(settings, editForm);
 editFormValidator.enableValidation();
 const cardFormValidator = new FormValidator(settings, addCardForm);
 cardFormValidator.enableValidation();
+/*const avatarFormValidator = new FormValidator(settings, avatarForm);
+avatarFormValidator.enableValidation();*/
 
 //sets image popup listener/instance
 const imagePopup = new PopupWithImage('.popup__type_image');
@@ -40,13 +43,18 @@ function createCard(item) {
             deleteConfirmPopup.setSubmitHandler(() => {
                 //remove the card
                 api.removeCard(cardId)
-                  .then(() => {
-                    card.deleteCard();
-                    deleteConfirmPopup.close();
-                  })})
+                    .then(() => {
+
+                        card.deleteCard();
+                        deleteConfirmPopup.close();
+                    })
+            })
+
 
         },
-    }, ".card-template")
+    }, item._id, ".card-template")
+console.log(item._id);
+
     const cardElement = card.generateCard();
     return cardElement
 }
@@ -63,14 +71,15 @@ api.getInitialCards()
                 defaultCardList.addItem(cardElement);
             }
         }, ".cards");
-
+console.log(res);
         defaultCardList.renderItems();
 
         const popupAddCard = new PopupWithForm('.popup__type_add-card', (data) => {
 
             api.addCard(data)
                 .then(res => {
-                    const card = createCard(data);
+                    const card = createCard(res);
+console.log(data);
 
                     defaultCardList.addItem(card);
                     popupAddCard.close();
@@ -92,12 +101,14 @@ api.getInitialCards()
 
 
 
+
 //render initial profile info with api
 api.getUserInfo()
     .then(res => {
-        userInfo.setUserInfo({ name: res.name, about: res.about });
+
+        userInfo.setUserInfo({ name: res.name, about: res.about, avatar: res.avatar });
     })
-const userInfo = new UserInfo({ nameSelector: '.profile__name', aboutSelector: '.profile__occupation' });
+const userInfo = new UserInfo({ nameSelector: '.profile__name', aboutSelector: '.profile__occupation', avatarSelector: '.profile__avatar' });
 //update user info/send to api
 /*api.changeUserInfo({name,about})
 .then(res =>{

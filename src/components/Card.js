@@ -3,45 +3,54 @@ class Card {
         data,
         handleCardImageClick,
         handleDeleteClick
-    },
+    }, myId,
         template) {
         this._name = data.name;
         this._link = data.link;
+        this._owner = data.owner;
+        this._id = data._id;
         this._template = template;
+        this._cardElem = this._getCardTemplate();
         this._handleCardImageClick = handleCardImageClick;
         this._handleDeleteClick = handleDeleteClick;
-        this._id = data._id;
+        this._myId = myId;
 
+        this._deleteBtn = this._cardElem.querySelector('.card__delete-btn');
+        this._image = this._cardElem.querySelector('.card__image');
     }
 
     id() {
         return this._id;
     }
 
-    deleteCard (){
-               this._cardElem.remove('.card');       
-      
+    deleteCard() {
+        this._cardElem.remove('.card');
+
     }
 
+    _removeTrashBtn() {
+        if (this._owner !== this._myId) {
+            this._deleteBtn.style.display = "none";
+        }
+    }
     _getCardTemplate() {
-        const cardTemplate = document.querySelector(this._template).content.querySelector('.card');
+        const cardTemplate = document.querySelector(this._template).content.querySelector('.card')
+            .cloneNode(true);
         return cardTemplate;
     }
 
     _setEventListeners() {
         const likeBtn = this._cardElem.querySelector('.card__like-btn');
-        const deleteBtn = this._cardElem.querySelector('.card__delete-btn');
-        
-        
+
 
         //like button event
         likeBtn.addEventListener('click', (e) => {
             e.target.classList.toggle('card__like-btn_active');
         })
         //delete button event
-        deleteBtn.addEventListener('click', (e) => {
+        this._deleteBtn.addEventListener('click', () => {
             this._handleDeleteClick(this.id());
-            //e.target.closest('.card').remove();
+
         })
 
         //open image popup
@@ -51,15 +60,12 @@ class Card {
     }
     generateCard() {
 
-
-        this._cardElem = this._getCardTemplate().cloneNode(true);
         const title = this._cardElem.querySelector('.card__heading');
-        this._image = this._cardElem.querySelector('.card__image');
 
 
         title.textContent = this._name;
         this._image.style.backgroundImage = `url(${this._link})`;
-
+        this._removeTrashBtn();
         this._setEventListeners();
         return this._cardElem;
 

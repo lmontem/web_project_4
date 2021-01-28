@@ -10,6 +10,7 @@ export const settings = {
 
 const editProfilePopup = document.querySelector('.popup__type_edit-profile');
 const addCardPopup = document.querySelector('.popup__type_add-card');
+const avatarPopup = document.querySelector('.popup__type_avatar');
 //buttons
 export const editButton = document.querySelector('.profile__edit-btn');
 export const addCardBtn = document.querySelector('.profile__add-btn');
@@ -19,3 +20,6 @@ export const nameInput = editProfilePopup.querySelector('.popup__input_type_name
 export const aboutMeInput = editProfilePopup.querySelector('.popup__input_type_about');
 //add form
 export const addCardForm = addCardPopup.querySelector('.popup__form');
+//avatar form
+export const avatarForm = avatarPopup.querySelector('.popup_form');
+
