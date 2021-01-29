@@ -1,5 +1,6 @@
 .card__like-btn{
     grid-column: 2/3;
+    grid-row: 2/2;
     align-self: center;
     justify-self: flex-end;
     margin-right: 18px;

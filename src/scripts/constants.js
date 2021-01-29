@@ -23,5 +23,5 @@ export const aboutMeInput = editProfilePopup.querySelector('.popup__input_type_a
 //add form
 export const addCardForm = addCardPopup.querySelector('.popup__form');
 //avatar form
-export const avatarForm = avatarPopup.querySelector('.popup_form');
+export const avatarForm = avatarPopup.querySelector('.popup__form');
 

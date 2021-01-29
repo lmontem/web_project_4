@@ -18,13 +18,13 @@
 
             <section class="profile">
                 <div class="profile__avatar-container">
-                <img class="profile__avatar" src="./images/avatar.png" alt="profile picture">
-                <button class="profile__edit-avatar" aria-label="edit-avatar" type="button"></button>
-            </div>
+                    <img class="profile__avatar" src="#" alt="profile picture">
+                    <button class="profile__edit-avatar" aria-label="edit-avatar" type="button"></button>
+                </div>
                 <div class="profile__info">
-                    <h1 class="profile__name">Jacques Cousteau</h1>
+                    <h1 class="profile__name"></h1>
                     <button class="profile__edit-btn" type="button" aria-label="Edit profile"></button>
-                    <p class="profile__occupation">Explorer</p>
+                    <p class="profile__occupation"></p>
 
                 </div>
                 <button class="profile__add-btn" type="button" aria-label="Add picture"></button>
@@ -54,7 +54,7 @@
                                 name="about" placeholder="about me" required minlength="2" maxlength="200">
                             <span class="popup__input-error" id="about-input-error"></span>
                         </label>
-                        <button class="popup__save-btn" type="submit" aria-label="Save">Save</button>
+                        <button class="popup__save-btn" type="submit" aria-label="Save"></button>
                     </form>
                 </div>
 
@@ -86,11 +86,11 @@
                 <div class="popup__container">
                     <h3 class="popup__title">Change profile picture</h3>
                     <form class="popup__form" name="avatar">
-                        <label class="popup__label"><input class="popup__input popup__input_type_avatar-link" id="avatar-input"
-                                type="url" name="link" placeholder="Avatar Link" required>
+                        <label class="popup__label"><input class="popup__input popup__input_type_avatar-link"
+                                id="avatar-input" type="url" name="link" placeholder="Avatar Link" required>
                             <span class="popup__input-error" id="avatar-input-error"></span>
-                        </label>                        
-                        <button class="popup__save-btn" type="submit" aria-label="Save ">Save</button>
+                        </label>
+                        <button class="popup__save-btn" type="submit" aria-label="Save "></button>
                     </form>
                 </div>
             </div>
@@ -98,12 +98,12 @@
         <div class="popup popup__type_delete">
             <div class="popup__box">
                 <button class="popup__close-btn" type="button" aria-label="Close"></button>
-                <div class="popup__container">
-                    <h3 class="popup__title">Are you sure?</h3>  
-                         <form class="popup__form">  
-                                 
-                        <button class="popup__save-btn popup__input" type="submit" aria-label="Yes">Yes</button>  
-                    </form>         
+                <div class="popup__container popup__container_type_delete">
+                    <h3 class="popup__title">Are you sure?</h3>
+                    <form class="popup__form">
+
+                        <button class="popup__save-btn" type="submit" aria-label="Yes"></button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -123,6 +123,7 @@
             <div class="card__image"></div>
             <h2 class="card__heading"></h2>
             <button class="card__like-btn" type="button" aria-label="Like"></button>
+            <p class="card__like-count"></p>
 
         </div>
     </template>

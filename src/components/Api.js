@@ -32,14 +32,14 @@ class Api {
             .catch(err => console.log('Error! ' + err))
 
     }
-    getAllInfo(){
+    getAllInfo() {
         return Promise.all([this.getUserInfo(), this.getInitialCards()])
     }
     //PATCH https://around.nomoreparties.co/v1/groupId/users/me
     changeUserInfo({ name, about }) {
         return fetch(this._baseUrl + '/users/me', {
             method: "PATCH",
-            headers: this._headers,        
+            headers: this._headers,
             body: JSON.stringify({
                 name,
                 about
@@ -54,10 +54,10 @@ class Api {
             .catch(err => console.log('Error! ' + err))
     }
     //POST https://around.nomoreparties.co/v1/groupId/cards
-    addCard({name,link}){
+    addCard({ name, link }) {
         return fetch(this._baseUrl + '/cards', {
             method: "POST",
-            headers: this._headers,        
+            headers: this._headers,
             body: JSON.stringify({
                 name,
                 link
@@ -69,53 +69,70 @@ class Api {
                 }
                 return Promise.reject(`Error: ${res.status}`)
             })
-            .catch(err => console.log('Error! ' + err))       
-        
+            .catch(err => console.log('Error! ' + err))
+
     }
-    removeCard(cardId){
+    removeCard(cardId) {
         //fetch cards + cardid 
         return fetch(this._baseUrl + '/cards/' + cardId, {
             method: "DELETE",
-            headers: this._headers,        
-            })
+            headers: this._headers,
+        })
             .then(res => {
                 if (res.ok) {
                     return res.json();//this makes object out of response
                 }
                 return Promise.reject(`Error: ${res.status}`)
             })
-            .catch(err => console.log('Error! ' + err)) 
+            .catch(err => console.log('Error! ' + err))
     }
     //PATCH https://around.nomoreparties.co/v1/groupId/users/me/avatar
-    setAvatar({avatar}){        
-       console.log("API: " + avatar);
-       return fetch(this._baseUrl + '/users/me/avatar', {
+    setAvatar({ avatar }) {
+
+        return fetch(this._baseUrl + '/users/me/avatar', {
             method: "PATCH",
-            headers: this._headers,        
+            headers: this._headers,
             body: JSON.stringify({
                 avatar
             })
         })
             .then(res => {
-                console.log("Res: " + res);
+
                 if (res.ok) {
                     return res.json();//this makes object out of response
                 }
                 return Promise.reject(`Error: ${res.status}`)
             })
-            .catch(err => console.log('Error! ' + err))       
-        
+            .catch(err => console.log('Error! ' + err))
+
     }
-    }
-
-
-
-    /*
-   
-    changeLikeCArdStatus(cardId,like){
+    // PUT https://around.nomoreparties.co/v1/groupId/cards/likes/cardId
+    // DELETE https://around.nomoreparties.co/v1/groupId/cards/likes/cardId
+    changeLikeCardStatus(cardId, like) {
         //PUT AND DELETE
+        const whichMethod = like ? "DELETE" : "PUT";
+        return fetch(this._baseUrl + '/cards/likes/' + cardId, {
+            method: whichMethod,
+            headers: this._headers,
+
+        })
+            .then(res => {
+
+                if (res.ok) {
+                    return res.json();//this makes object out of response
+                }
+                return Promise.reject(`Error: ${res.status}`)
+            })
+            .catch(err => console.log('Error! ' + err))
     }
-    
-    */
-   
-    export default Api;
+}
+
+
+
+
+
+
+
+
+
+export default Api;

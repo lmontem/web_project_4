@@ -15,10 +15,10 @@ class UserInfo {
     setUserInfo(elements) {
         this._nameElem.textContent = elements.name;
         this._aboutElem.textContent = elements.about;
-        
+
 
     }
-    changeAvatar(elements){
+    changeAvatar(elements) {
         this._avatarElem.src = elements;
     }
 }

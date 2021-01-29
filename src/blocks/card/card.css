@@ -3,6 +3,7 @@
 @import url('./__like-btn/card__like-btn.css');
 @import url('./__like-btn/card__like-btn_active.css');
 @import url('./__delete-btn/card__delete-btn.css');
+@import url('./__like-count/card__like-count.css');
 
 .card{
     width: 100%;
@@ -11,5 +12,6 @@
     border-radius: 10px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 50px;    
+    grid-template-columns: 1fr 50px;  
+     
 }

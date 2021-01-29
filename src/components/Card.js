@@ -3,21 +3,26 @@ class Card {
         data,
         handleCardImageClick,
         handleDeleteClick,
+        handleLikes,
         myId
-    }, 
+    },
         template) {
         this._name = data.name;
         this._link = data.link;
         this._owner = data.owner;
         this._id = data._id;
+        this._likes = data.likes;
         this._template = template;
         this._cardElem = this._getCardTemplate();
         this._handleCardImageClick = handleCardImageClick;
         this._handleDeleteClick = handleDeleteClick;
+        this._handleLikes = handleLikes;
+        this._cardLikes = this._cardElem.querySelector('.card__like-count');
         this._myId = myId;
-
+        this._likeBtn = this._cardElem.querySelector('.card__like-btn');
         this._deleteBtn = this._cardElem.querySelector('.card__delete-btn');
         this._image = this._cardElem.querySelector('.card__image');
+        this._title = this._cardElem.querySelector('.card__heading');
     }
 
     id() {
@@ -34,6 +39,16 @@ class Card {
             this._deleteBtn.style.display = "none";
         }
     }
+
+    getLikeCount(count) {
+        this._cardLikes.textContent = count;
+    }
+
+    showLikes() {
+        if (this._likes.some(like => like._id === this._myId)) {
+            this._likeBtn.classList.add('card__like-btn_active');
+        }
+    }
     _getCardTemplate() {
         const cardTemplate = document.querySelector(this._template).content.querySelector('.card')
             .cloneNode(true);
@@ -41,19 +56,16 @@ class Card {
     }
 
     _setEventListeners() {
-        const likeBtn = this._cardElem.querySelector('.card__like-btn');
-
 
         //like button event
-        likeBtn.addEventListener('click', (e) => {
-            e.target.classList.toggle('card__like-btn_active');
+        this._likeBtn.addEventListener('click', () => {
+            // e.target.classList.toggle('card__like-btn_active');
+            this._handleLikes(this.id());
         })
         //delete button event
         this._deleteBtn.addEventListener('click', () => {
             this._handleDeleteClick(this.id());
-
         })
-
         //open image popup
         this._image.addEventListener('click', () => {
             this._handleCardImageClick(this._name, this._link);
@@ -61,12 +73,11 @@ class Card {
     }
     generateCard() {
 
-        const title = this._cardElem.querySelector('.card__heading');
-
-
-        title.textContent = this._name;
+        this._title.textContent = this._name;
         this._image.style.backgroundImage = `url(${this._link})`;
         this._removeTrashBtn();
+        this.getLikeCount(this._likes.length);
+        this.showLikes();
         this._setEventListeners();
         return this._cardElem;
 
