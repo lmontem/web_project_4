@@ -2,8 +2,9 @@ class Card {
     constructor({
         data,
         handleCardImageClick,
-        handleDeleteClick
-    }, myId,
+        handleDeleteClick,
+        myId
+    }, 
         template) {
         this._name = data.name;
         this._link = data.link;
@@ -29,7 +30,7 @@ class Card {
     }
 
     _removeTrashBtn() {
-        if (this._owner !== this._myId) {
+        if (this._owner._id !== this._myId) {
             this._deleteBtn.style.display = "none";
         }
     }

@@ -8,12 +8,14 @@ export const settings = {
     errorClass: "popup__error_visible"
 }
 
-const editProfilePopup = document.querySelector('.popup__type_edit-profile');
-const addCardPopup = document.querySelector('.popup__type_add-card');
-const avatarPopup = document.querySelector('.popup__type_avatar');
+export const editProfilePopup = document.querySelector('.popup__type_edit-profile');
+export const addCardPopup = document.querySelector('.popup__type_add-card');
+export const avatarPopup = document.querySelector('.popup__type_avatar');
+export const deletePopup = document.querySelector('.popup__type_delete');
 //buttons
 export const editButton = document.querySelector('.profile__edit-btn');
 export const addCardBtn = document.querySelector('.profile__add-btn');
+export const avatarEditBtn = document.querySelector('.profile__edit-avatar');
 //edit form
 export const editForm = editProfilePopup.querySelector('.popup__form');
 export const nameInput = editProfilePopup.querySelector('.popup__input_type_name');

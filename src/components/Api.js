@@ -32,6 +32,9 @@ class Api {
             .catch(err => console.log('Error! ' + err))
 
     }
+    getAllInfo(){
+        return Promise.all([this.getUserInfo(), this.getInitialCards()])
+    }
     //PATCH https://around.nomoreparties.co/v1/groupId/users/me
     changeUserInfo({ name, about }) {
         return fetch(this._baseUrl + '/users/me', {
@@ -85,7 +88,8 @@ class Api {
     }
     //PATCH https://around.nomoreparties.co/v1/groupId/users/me/avatar
     setAvatar({avatar}){        
-        return fetch(this._baseUrl + 'users/me/avatar', {
+       console.log("API: " + avatar);
+       return fetch(this._baseUrl + '/users/me/avatar', {
             method: "PATCH",
             headers: this._headers,        
             body: JSON.stringify({
@@ -93,6 +97,7 @@ class Api {
             })
         })
             .then(res => {
+                console.log("Res: " + res);
                 if (res.ok) {
                     return res.json();//this makes object out of response
                 }
