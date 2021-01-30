@@ -28,8 +28,8 @@ class PopupWithForm extends Popup {
         })
     }
 
-    setSubmitHandler(event) {
-        this._handleFormSubmit = event;
+    setSubmitHandler(newSubmitHandler) {
+        this._handleFormSubmit = newSubmitHandler;
     }
 
     close() {

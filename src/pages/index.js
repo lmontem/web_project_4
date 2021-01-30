@@ -8,7 +8,7 @@ import UserInfo from "../components/UserInfo.js";
 import Api from "../components/Api.js";
 import '../pages/index.css'; // add import of the main stylesheets file
 
-
+let myId;
 
 const api = new Api({
     baseUrl: "https://around.nomoreparties.co/v1/group-8",
@@ -54,7 +54,6 @@ function createCard(item, myId) {
                 //remove the card
                 api.removeCard(cardId)
                     .then(() => {
-
                         card.deleteCard();
                         deleteConfirmPopup.close();
                         handleIsLoading(false, deletePopup, "Yes");
@@ -63,13 +62,13 @@ function createCard(item, myId) {
             })
         },
         handleLikes: (cardId) => {
-            if (card._likeBtn.classList.contains('card__like-btn_active')) {
+            if (card.isLiked()) {
                 api.changeLikeCardStatus(cardId, true)
                     .then((res) => {
                         card.getLikeCount(res.likes.length)
                     })
                     .then(() => {
-                        card._likeBtn.classList.remove('card__like-btn_active')
+                        card.dislikeCard()
                     })
                     .catch(err => console.log('Error! ' + err))
 
@@ -79,7 +78,7 @@ function createCard(item, myId) {
                         card.getLikeCount(res.likes.length);
                     })
                     .then(() => {
-                        card._likeBtn.classList.add('card__like-btn_active')
+                        card.likeCard()
                     })
                     .catch(err => console.log('Error! ' + err))
             }
@@ -92,51 +91,46 @@ function createCard(item, myId) {
     return cardElement
 }
 
+const defaultCardList = new Section({
+    renderer: (item) => {
+        const cardElement = createCard(item, myId);
+        defaultCardList.addItem(cardElement);
+    }
+}, ".cards")
+handleIsLoading(false, addCardPopup, "Save");
+
+
+//adding a card popup
+const popupAddCard = new PopupWithForm('.popup__type_add-card', (data) => {
+    handleIsLoading(true, addCardPopup, "Saving...");
+    api.addCard(data)
+        .then(res => {
+            const card = createCard(res, myId);
+            defaultCardList.addItem(card);
+            popupAddCard.close();
+        })
+        .then(() => {
+            handleIsLoading(false, addCardPopup, "Save");
+        })
+        .catch(err => console.log('Error! ' + err))
+})
+
+popupAddCard.setEventListeners();
+
+addCardBtn.addEventListener('click', () => {
+    cardFormValidator.resetValidation();
+    popupAddCard.open();
+})
 
 //render initial cards with api
 api.getAllInfo()
     .then(([userData, initialCardData]) => {
-        const myId = userData._id;
-        const defaultCardList = new Section({
-            items: initialCardData,
-            renderer: (item) => {
-                const cardElement = createCard(item, myId);
-                defaultCardList.addItem(cardElement);
-            }
-        }, ".cards")
-
+        myId = userData._id;
         userInfo.setUserInfo({ name: userData.name, about: userData.about });
         userInfo.changeAvatar(userData.avatar);
-        handleIsLoading(false, addCardPopup, "Save");
-        defaultCardList.renderItems();
-        //adding a card popup
-        const popupAddCard = new PopupWithForm('.popup__type_add-card', (data) => {
-
-            handleIsLoading(true, addCardPopup, "Saving...");
-            api.addCard(data)
-                .then(res => {
-                    const card = createCard(res, myId);
-                    defaultCardList.addItem(card);
-                    popupAddCard.close();
-                })
-                .then(() => {
-                    handleIsLoading(false, addCardPopup, "Save");
-                })
-                .catch(err => console.log('Error! ' + err))
-
-        })
-
-
-        //eventlisteners need to be out of second then
-        popupAddCard.setEventListeners();
-
-        addCardBtn.addEventListener('click', () => {
-
-            cardFormValidator.resetValidation();
-            popupAddCard.open();
-        })
-
+        defaultCardList.renderItems(initialCardData);
     })
+    .catch(err => console.log('Error! ' + err))
 
 
 const userInfo = new UserInfo({ nameSelector: '.profile__name', aboutSelector: '.profile__occupation', avatarSelector: '.profile__avatar' });
